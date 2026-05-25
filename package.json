@@ -1,18 +1,18 @@
 {
   "name": "blogapi",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API de um Blog básico",
+  "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RodrigoIsaltoLima/BlogAPI.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["blog", "api", "express", "typescript", "prisma", "node"],
+  "author": "Rodrigo Isalto Lima",
+  "license": "MIT",
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/RodrigoIsaltoLima/BlogAPI/issues"
