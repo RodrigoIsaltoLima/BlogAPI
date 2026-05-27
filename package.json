@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/RodrigoIsaltoLima/BlogAPI.git"
   },
-  "keywords": ["blog", "api", "express", "typescript", "prisma", "node"],
+  "keywords": [
+    "blog",
+    "api",
+    "express",
+    "typescript",
+    "prisma",
+    "node"
+  ],
   "author": "Rodrigo Isalto Lima",
   "license": "MIT",
   "type": "commonjs",
@@ -30,6 +37,7 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.3",
     "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
