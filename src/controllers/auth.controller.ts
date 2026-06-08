@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import { z } from "zod";
-import { createUser } from "../services/user.service";
-
+import { createUser, verifyUser } from "../services/user.service";
+import { createToken } from "../services/auth.service.ts";
 export const signIn: RequestHandler = (req, res) => {
     //
 };
@@ -11,18 +11,33 @@ export const signUp: RequestHandler = async (req, res) => {
         name: z.string(),
         email: z.string().email(),
         password: z.string()
-    });
+    })
     const data = schema.safeParse(req.body);
     if (!data.success) {
         res.status(400).json({ errors: data.error.flatten().fieldErrors });
         return;
     }
+    const user = await verifyUser(data.data)
+    if (!user) {
+        res.status(400).json({ message: "Email ou senha incorretos" });
+        return;
+    }
+
     const newUser = await createUser(data.data)
     if (!newUser) {
         res.status(400).json({ message: "Email já cadastrado" });
         return;
     }
-
+    const token = createToken(newUser)
+    res.json({
+        message: "Login realizado com sucesso",
+        user: {
+            id: user.id,
+            name: user.name,
+            email: user.email
+        },
+        token
+    });
     const token = "123";
     res.status(201).json({
         message: "Usuário criado com sucesso",
