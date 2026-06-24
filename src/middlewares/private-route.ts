@@ -1,6 +1,6 @@
-import { NextFunction, Resquest, Response } from 'express'
+import { NextFunction, Response } from 'express'
 import { verifyRequest } from '../services/auth.service'
-import { ExtendedRequest } from '../types/extendedrequest
+import { ExtendedRequest } from '../types/extended-request'
 
 export const privateRoute = async (
   req: ExtendedRequest,

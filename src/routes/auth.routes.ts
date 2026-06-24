@@ -6,4 +6,4 @@ export const authRoutes = Router();
 
 authRoutes.post("/signin", authController.signIn);
 authRoutes.post("/signup", authController.signUp);
-authRoutes.get("/validate", privateRoute, authController.validate);
+authRoutes.post("/validate", privateRoute, authController.validate);

@@ -15,7 +15,9 @@ export const verifyRequest = async (req: any) => {
         if (token) {
             const payload = verifyJWT(token)
             if (payload) {
-                const userId = (payload as TokenPayload).userId
+                const userId = (payload as TokenPayload).id
+                console.log('Token payload:', payload) // Log para depuração
+				console.log('User ID from token:', userId) // Log para depuração
                 const user = await geUserById(Number(userId))
                 if (user) 
                     return user
